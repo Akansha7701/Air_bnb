@@ -6,8 +6,7 @@ This project focuses on real-world backend workflows, authentication, role-based
 
 🚀 Live Demo
 
-🚀 Live Demo: [Click Here](https://airbnb-full-stack-project-e7eq.onrender.com/listings)
-📂 GitHub Repo: [Click Here](https://github.com/hariom-p1306/AirBnb-Full-Stack-Project-)
+🚀 Live Demo:  
 ⚠️ Note: Initial load may take a few seconds due to free server hosting.
 
 🛠️ Tech Stack
@@ -44,7 +43,8 @@ Models → Define MongoDB schemas (User, Listing, Booking, Review)
 
 Routes → Handle request endpoints
 
-Controllers (inside routes) → Manage business logic
+Controllers → Handle business logic
+Routes → Define application endpoints
 
 Views → Render dynamic UI using EJS
 
@@ -86,11 +86,6 @@ airbnb/
 
 
 ⚙️ Installation & Setup
-
-Clone the repository
-
-git clone https://github.com/hariom-p1306/AirBnb-Full-Stack-Project-
-
 
 Install dependencies
 
@@ -150,5 +145,5 @@ Performance optimization
 👤 Author
 
 Akansha
-LinkedIn: (https://www.linkedin.com/in/hariom-patel-dev)
-Portfolio: https://portfolio-one-navy-20.vercel.app/
+LinkedIn: www.linkedin.com/in/akansha-20m04
+
