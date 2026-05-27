@@ -50,7 +50,10 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
-const dbUrl = process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/airbnb";
+// const dbUrl = process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/airbnb";
+
+const dbUrl = process.env.ATLASDB_URL;
+
 
 main()
   .then(() => {
