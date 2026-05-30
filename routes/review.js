@@ -14,15 +14,14 @@ const reviewController = require("../controllers/review.js")
 
 router.post("/", isLoggedIn, validateReview, wrapAsync(reviewController.createReview));
 
-// router.post("/", (req, res) => {
-//   console.log("REVIEW ROUTE HIT ", req.params.id);
-//   console.log(req.body);
-//   res.send("OK REVIEW");
-// });
-
 
 
 // Delete review
-router.delete("/:reviewId",isLoggedIn, wrapAsync(reviewController.destroyReview));
+router.delete(
+  "/:reviewId",
+  isLoggedIn,
+  isReviewAuthor,
+  wrapAsync(reviewController.destroyReview)
+);
 
 module.exports = router;

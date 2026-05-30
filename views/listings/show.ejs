@@ -70,7 +70,29 @@
 
         </h4>
 
-      </div>
+        <% if(currUser && listing.owner._id.equals(currUser._id)){ %>
+
+          <div class="mt-3 d-flex gap-2">
+
+            <a href="/listings/<%= listing._id %>/edit"
+              class="btn btn-outline-dark">
+              Edit
+            </a>
+
+            <form action="/listings/<%= listing._id %>?_method=DELETE"
+              method="POST">
+
+              <button class="btn btn-danger">
+                Delete
+              </button>
+
+            </form>
+
+          </div>
+
+          <% } %>
+
+        </div>
 
 
       <!-- RIGHT SIDE BOOKING -->
@@ -128,7 +150,7 @@
 
       <h4 class="fw-bold">Leave a Review</h4>
 
-      <% if(currUser){ %>
+      <% if(currUser && !listing.owner._id.equals(currUser._id)){ %>
 
         <form action="/listings/<%= listing._id %>/reviews" method="POST" class="card p-3 shadow-sm border-0">
 
@@ -199,15 +221,10 @@
           <hr>
 
 
-          <!-- MAP -->
-
-          <h4 class="fw-bold">Where you'll be</h4>
-
-          <div id="map" style="height:400px;width:100%;border-radius:12px;margin-bottom:30px;"></div>
+          
 
     </div>
 
     <script src="/js/script.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.GOOGLE_MAPS_API_KEY %>&callback=initMap"
-      async defer></script>
+    

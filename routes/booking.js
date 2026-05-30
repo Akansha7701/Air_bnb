@@ -6,17 +6,6 @@ const { isLoggedIn } = require("../middleware");
 
 
 // ================= HOST DASHBOARD =================
-// router.get("/host/dashboard", isLoggedIn, async (req, res) => {
-//     const bookings = await Booking.find({ host: req.user._id })
-//         .populate("listing")
-//         .populate("guest");
-//     //console.log("HOST ID SAVED:", booking.host.toString());
-//     // console.log("CURRENT USER:", req.user._id.toString());
-
-
-//     res.render("bookings/dashboard", { bookings });
-// });
-
 
 router.get("/host/dashboard", isLoggedIn, async (req, res) => {
 
@@ -72,11 +61,25 @@ router.post("/:id", isLoggedIn, async (req, res) => {
     try {
         const listing = await Listing.findById(req.params.id).populate("owner");
 
+        if (listing.owner._id.equals(req.user._id)) {
+            return res.status(400).json({
+               success: false,
+               error: "You cannot book your own property"
+        });
+    }
+
         if (!listing || !listing.owner) {
             return res.status(404).json({ success: false, error: "Listing or owner not found" });
         }
 
         const { checkIn, checkOut } = req.body;
+
+        if (new Date(checkOut) <= new Date(checkIn)) {
+            return res.status(400).json({
+               success: false,
+               error: "Check-out must be after check-in"
+           });
+        }
 
         const booking = new Booking({
             listing: listing._id,

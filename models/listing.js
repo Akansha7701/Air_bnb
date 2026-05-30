@@ -23,20 +23,12 @@ const listingSchema = new Schema({
   type: Number,
   default: 0
 },
-    location: [String],
+    location: {
+    type: String,
+    required: true,
+},
     country: String,
 
-     owner:
-        {
-        type: Schema.Types.ObjectId,
-        ref:"User",
-        },
-    reviews:[
-        {
-        type: Schema.Types.ObjectId,
-        ref:"Review",
-        },
-    ],
 
     category: {
     type: String,

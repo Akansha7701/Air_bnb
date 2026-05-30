@@ -1,20 +1,3 @@
-// const Listing = require("../models/listing");
-// module.exports.index = async (req, res) => {
-//   const { category } = req.query;
-
-//   let allListings;
-
-//   if (category) {
-//     allListings = await Listing.find({ category });
-//   } else {
-//     allListings = await Listing.find({});
-//   }
-
-//   res.render("listings/index", { allListings,category });
-// };
-
-
-
 const Listing = require("../models/listing");
 const Booking = require("../models/booking");
 
@@ -101,6 +84,12 @@ module.exports.createListing = async (req, res, next) => {
   console.log("BODY 👉", req.body.listing);
   newListing.owner = req.user._id;
 
+
+  if (!req.file) {
+    req.flash("error", "Please upload an image");
+    return res.redirect("/listings/new");
+}
+
   let url = req.file.path;
   let filename = req.file.filename;
   console.log(url, "..", filename);
@@ -123,7 +112,7 @@ module.exports.renderEditForm = async (req, res) => {
   }
 
   let originalImageUrl = listing.image.url;
-  originalImageUrl = originalImageUrl.replace("/uplaod", "/upload/w_250,h_250");
+  originalImageUrl = originalImageUrl.replace("/upload", "/upload/w_250,h_250");
   res.render("listings/edit", { listing, originalImageUrl });
 };
 

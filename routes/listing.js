@@ -18,7 +18,8 @@ router
   .get(wrapAsync(listeningController.index))
   .post(
     isLoggedIn,
-    upload.single("listing[image]"),
+    
+    upload.single("listing[image]"),  
     validateListing,
     wrapAsync(listeningController.createListing)
   );
@@ -53,29 +54,6 @@ router.get(
   isOwner,
   wrapAsync(listeningController.renderEditForm)
 );
-
-
-
-// router.get("/search", wrapAsync(async (req, res) => {
-//     const { q } = req.query;
-
-//     if (!q) {
-//         return res.redirect("/listings");
-//     }
-
-//     const listings = await Listing.find({
-//         $or: [
-//             { location: { $regex: q, $options: "i" } },
-//             { country: { $regex: q, $options: "i" } },
-//             { title: { $regex: q, $options: "i" } }
-//         ]
-//     });
-
-//     res.render("listings/index", { listings });
-// }));
-
-
-
 
 
 module.exports = router;
