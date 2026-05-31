@@ -8,7 +8,7 @@ The project is designed to demonstrate real-world full-stack development concept
 
 ## 🚀 Live Demo
 
-🔗 Live Demo: Coming Soon
+🔗 Live Demo: https://air-bnb-qf4z.onrender.com
 
 ⚠️ **Note:** The application is hosted on a free-tier server, so the initial load may take a few seconds.
 
