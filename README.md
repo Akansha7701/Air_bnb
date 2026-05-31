@@ -1,149 +1,256 @@
-🏠 Airbnb Clone – Full Stack Booking Platform
+# 🏠 Airbnb Clone – Full Stack Property Booking Platform
 
-A full-stack Airbnb-style web application where users can list properties, send booking requests, and manage bookings as hosts or guests.
+A full-stack Airbnb-inspired web application that enables users to discover properties, create listings, upload images, book stays, and manage reservations seamlessly.
 
-This project focuses on real-world backend workflows, authentication, role-based access control, and MVC architecture.
+The project is designed to demonstrate real-world full-stack development concepts including authentication, authorization, MVC architecture, database relationships, image management, and booking workflows.
 
-🚀 Live Demo
+---
 
-🚀 Live Demo:  
-⚠️ Note: Initial load may take a few seconds due to free server hosting.
+## 🚀 Live Demo
 
-🛠️ Tech Stack
+🔗 Live Demo: Coming Soon
 
-Frontend: HTML, CSS, JavaScript, EJS, Bootstrap
-Backend: Node.js, Express.js, MongoDB, Mongoose, Passport.js
-External Services: Cloudinary, Google Maps API, Render (Deployment)
+⚠️ **Note:** The application is hosted on a free-tier server, so the initial load may take a few seconds.
 
-## ✨ Key Features
+---
 
-✨ Key Features
-- User Authentication (Signup/Login/Logout) with session management
-- Role-based access (Host & Guest)
-- CRUD Property Listings with secure image uploads via Cloudinary
-- Booking system: request, accept/reject, dynamic status updates
-- Dashboards for Guests & Hosts
-- Search & filter listings (city, price, guest count)
-- Flash messages, form validation & secure route protection
+## 📸 Features
 
-## 🔍 Search & Filtering
+### 🔐 Authentication & Authorization
 
-Users can search for listings based on city name.  
-Additionally, the application supports advanced filtering options — such as price range and number of guests — to refine results.
+* User Registration
+* User Login
+* User Logout
+* Session-Based Authentication using Passport.js
+* Protected Routes
+* Authorization for Listing Owners
 
-This enhances user experience and makes browsing listings more intuitive.
+### 🏡 Property Management
 
+* Create New Listings
+* Edit Existing Listings
+* Delete Listings
+* View Property Details
+* Upload Property Images via Cloudinary
 
+### 📅 Booking System
 
-🧠 Application Architecture
+* Send Booking Requests
+* Manage Reservations
+* View Booking History
+* Dynamic Booking Status Updates
 
-This application follows the MVC (Model-View-Controller) pattern:
+### ⭐ Reviews & Ratings
 
-Models → Define MongoDB schemas (User, Listing, Booking, Review)
+* Add Reviews
+* Delete Reviews
+* Property Rating System
 
-Routes → Handle request endpoints
+### 🔍 Search & Filtering
 
-Controllers → Handle business logic
-Routes → Define application endpoints
+* Search Listings by City
+* Filter Properties Based on Requirements
+* Improved Property Discovery Experience
 
-Views → Render dynamic UI using EJS
+### ☁️ Cloud Image Storage
 
-Middleware → Protect routes & validate permissions
+* Secure Image Uploads
+* Cloudinary Integration
+* Optimized Media Management
 
-Utils → Centralized error handling & async wrappers
+---
 
-🔐 Authentication Flow
+## 🛠️ Tech Stack
 
-User registers or logs in
+### Frontend
 
-Password is securely hashed before storage
+* HTML5
+* CSS3
+* JavaScript
+* EJS
+* Bootstrap
 
-Passport Local Strategy verifies credentials
+### Backend
 
-Session is created upon successful login
+* Node.js
+* Express.js
 
-Session cookie maintains authentication state
+### Database
 
-Protected routes are accessible only to logged-in users
+* MongoDB
+* Mongoose
 
-📁 Project Structure
+### Authentication
+
+* Passport.js
+* Express Session
+
+### Cloud Services
+
+* Cloudinary
+
+### Deployment
+
+* Render
+
+---
+
+## 🧠 System Architecture
+
+The application follows the **MVC (Model-View-Controller)** design pattern.
+
+### Models
+
+* User
+* Listing
+* Booking
+* Review
+
+### Views
+
+* Dynamic pages rendered using EJS
+
+### Controllers
+
+* Business logic handling
+* Request processing
+
+### Routes
+
+* RESTful routing structure
+* Endpoint management
+
+### Middleware
+
+* Authentication checks
+* Authorization checks
+* Validation logic
+
+### Utilities
+
+* Centralized error handling
+* Async wrapper functions
+
+---
+
+## 🔐 Authentication Flow
+
+1. User registers or logs in.
+2. Passport.js validates credentials.
+3. Session is created after successful authentication.
+4. Session cookie maintains login state.
+5. Protected routes verify authentication before granting access.
+6. Authorization ensures only owners can modify their listings.
+
+---
+
+## 📂 Project Structure
+
+```bash
 airbnb/
 │
+├── controllers/
+├── models/
+├── routes/
+├── views/
+│   ├── listings/
+│   ├── users/
+│   ├── bookings/
+│   ├── includes/
+│   └── layouts/
+│
+├── public/
+│   ├── css/
+│   └── js/
+│
+├── middleware/
+├── utils/
+├── cloudConfig.js
+├── app.js
+├── package.json
+└── README.md
+```
 
-├── public/ # Static files (CSS, JS)
+---
 
-├── routes/          # Express route handlers
+## ⚙️ Installation & Setup
 
-├── views/           # EJS templates
+### 1. Clone Repository
 
-├── middleware/      # Custom route protection logic
+```bash
+git clone <repository-url>
+cd airbnb
+```
 
-├── utils/           # Error handling & async wrapper
+### 2. Install Dependencies
 
-├── app.js           # Main server file
-
-└── package.json
-
-
-⚙️ Installation & Setup
-
-Install dependencies
-
+```bash
 npm install
+```
 
+### 3. Configure Environment Variables
 
-Create a .env file and add:
+Create a `.env` file and add:
 
-MONGO_URI=your_mongodb_connection_string
+```env
+ATLASDB_URL=
+SECRET=
 
-SESSION_SECRET=your_secret_key
+CLOUD_NAME=
+CLOUD_API_KEY=
+CLOUD_API_SECRET=
 
-GOOGLE_MAPS_API_KEY=your_api_key
+GOOGLE_MAPS_API_KEY=
+```
 
-CLOUDINARY_CLOUD_NAME=your_cloud_name
+### 4. Run the Application
 
-CLOUDINARY_KEY=your_key
+```bash
+node app.js
 
-CLOUDINARY_SECRET=your_secret
+```
 
+### 5. Open Browser
 
-Run the server
+```text
+http://localhost:8080
+```
 
-npm start
+---
 
+## 🎯 Learning Outcomes
 
-Open in browser:
+Through this project I gained hands-on experience in:
 
-http://localhost:3000
+* Full Stack Web Development
+* MVC Architecture
+* Authentication & Authorization
+* Session Management
+* MongoDB Schema Design
+* Database Relationships
+* RESTful Routing
+* Cloudinary Image Uploads
+* Error Handling
+* Deployment on Render
 
-🎯 Learning Outcomes
+---
 
-Implemented MVC architecture
+## 💡 Future Enhancements
 
-Built secure authentication using Passport
+* Payment Gateway Integration
+* Wishlist Functionality
+* Advanced Property Filters
+* Booking Notifications
+* Performance Optimization
+* Property Recommendations
 
-Designed booking workflow logic
+---
 
-Managed relational data using MongoDB references
+## 👨‍💻 Author
 
-Handled image uploads in production
+**Akansha**
 
-Deployed full-stack application to Render
+💼 LinkedIn: (http://www.linkedin.com/in/akansha-20m04)
 
-📌 Future Improvements
-
-Online payment gateway integration
-
-Reviews & rating system
-
-Wishlist feature
-
-Advanced search & filtering
-
-Performance optimization
-
-👤 Author
-
-Akansha
-LinkedIn: www.linkedin.com/in/akansha-20m04
+💻 GitHub: https://github.com/Akansha7701
 
